@@ -18,5 +18,17 @@
   "bugs": {
     "url": "https://github.com/soyuka/ezseed-database/issues"
   },
-  "homepage": "https://github.com/soyuka/ezseed-database"
+  "homepage": "https://github.com/soyuka/ezseed-database",
+  "dependencies": {
+    "mongoose": "^3.8.8",
+    "bcrypt-nodejs": "0.0.3",
+    "underscore": "^1.6.0",
+    "debug": "^0.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "should": "^3.2.0",
+    "chai": "^1.9.1",
+    "q": "^1.0.1"
+  }
 }
