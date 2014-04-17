@@ -8,8 +8,7 @@ module.exports = {
 	scrapper: require('./scrapper'),
 
 	paths: require('./paths'),
-	files: require('./files'),
-
+	file: require('./file'),
 	remove: require('./remove'),
 
 	users: require('./users')

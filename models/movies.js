@@ -1,7 +1,6 @@
 var mongoose = require('mongoose')
 	, Schema =  mongoose.Schema
 	, ObjectId = Schema.ObjectId
-	, files = require('./files')
 
 var movies = new Schema({
 	quality: String,
@@ -12,12 +11,13 @@ var movies = new Schema({
 	format: String,
 	movieType: String,
 	name: String,
+	year: Number,
+	type: {type: String, default: 'movie'},
 	//special schema for movies informations, we might want to change these
 	infos: {'type': ObjectId, ref:'MoviesInformations'},
-	videos: [files],
+	videos: [{type: ObjectId, ref: 'File'}],
 	prevDir: String,
 	prevDirRelative: String,
-	code: String,
 	dateAdded: { type: Date, default: Date.now },
 })
 

@@ -1,7 +1,6 @@
 var mongoose = require('mongoose')
 	, Schema =  mongoose.Schema
 	, ObjectId = Schema.ObjectId
-	, files = require('./files')
 
 //Albums schema
 var albums = new Schema(
@@ -10,7 +9,8 @@ var albums = new Schema(
 		album: String,
 		year: String,
 		genre: String,
-		songs: [files],
+		songs: [{type: ObjectId, ref: 'File'}],
+		type: {type: String, default: 'album'},
 		picture: String,
 		prevDir: String,
 		prevDirRelative: String,
@@ -18,4 +18,5 @@ var albums = new Schema(
 	}
 )
 
-module.exports = mongoose.model('Albums', albums)
+module.exports  = mongoose.model('Albums', albums)
+

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 	, Schema =  mongoose.Schema
 	, ObjectId = Schema.ObjectId
-	, files = require('./files')
+	, file = require('./file')
 
 //Others
 var others = new Schema(
@@ -10,7 +10,8 @@ var others = new Schema(
 		dateAdded: { type: Date, default: Date.now },
 		prevDir: String,
 		prevDirRelative: String,
-		files: [files]
+		type: {type: String, default: 'other'},
+		files: [{type: ObjectId, ref: 'File'}]
 	}
 )
 
