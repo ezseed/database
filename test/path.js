@@ -137,21 +137,21 @@ describe('path', function() {
 			})
 	})
 
-	it('should get 2 paths', function(cb) {
+	it('should get at least 2 paths', function(cb) {
 		db.paths.getAll(function(err, docs) {
-			expect(docs).to.have.length.of(2)
+			expect(docs).to.have.length.of.at.least(2)
 			cb()
 		})
 	})
 
-	// //TODO CRAP
-	// it('should get 2 paths by user', function(cb) {
-	// 	// db.user.paths(user._id, function(err, docs) {
+	it('should get 2 paths by user', function(cb) {
+		db.user.paths(user._id, function(err, docs) {
+			expect(err).to.be.null
+			expect(docs.paths).to.have.length.of(2)
+			cb()
 
-	// 	// 	cb()
-
-	// 	// })
-	// })
+		})
+	})
 
 	after(function(cb) {
 		db.user.delete(user.username, function(err) {
