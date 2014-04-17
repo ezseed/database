@@ -30,3 +30,4 @@ module.exports = function(options, done) {
 }
 
 module.exports.db = require('./lib')
+module.exports.models = require('./models')
