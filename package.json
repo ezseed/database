@@ -4,7 +4,7 @@
   "description": "Ezseed database handler",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,12 @@
     "mongoose": "^3.8.8",
     "bcrypt-nodejs": "0.0.3",
     "underscore": "^1.6.0",
-    "debug": "^0.8.0"
+    "debug": "^0.8.0",
+    "async": "~0.7.0"
   },
   "devDependencies": {
     "mocha": "^1.18.2",
     "should": "^3.2.0",
-    "chai": "^1.9.1",
-    "q": "^1.0.1"
+    "chai": "^1.9.1"
   }
 }
