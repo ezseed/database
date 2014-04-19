@@ -24,7 +24,7 @@ module.exports = function(options, done) {
 	})
 
 	mongo.once('open', function() {
-		debug('DB opened successfuly !')
+		debug('DB opened successfuly!')
 		done()
 	})
 }
