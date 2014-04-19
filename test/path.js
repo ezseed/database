@@ -153,20 +153,24 @@ describe('path', function() {
 		})
 	})
 
-	after(function(cb) {
+	it('should remove user', function(cb) {
 		db.user.delete(user.username, function(err) {
 			expect(err).to.be.null
-
-			db.paths.remove(test_path, function(err) {
-				expect(err).to.be.null
-				
-				db.paths.exists(test_path, function(exists) {
-					expect(exists).to.be.false
-					cb()
-				})
-
-			})
+			cb()
 		})
 	})
 
+	it('should remove path', function(cb) {
+		db.paths.remove(test_path._id, function(err) {
+			expect(err).to.be.null
+			cb()
+		})
+	})
+
+	it('should not exist', function(cb) {
+		db.paths.exists(test_path._id, function(exists) {
+			expect(exists).to.be.false
+			cb()
+		})
+	})
 })

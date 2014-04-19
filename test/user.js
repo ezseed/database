@@ -93,7 +93,7 @@ describe('user', function() {
 		, function(err) {
 			expect(err).to.be.null
 
-			db.user.byUsername(user.username, function(err, user) {
+			db.user.get(user.username, function(err, user) {
 				expect(err).to.be.null
 
 				expect(user).to.have.property('client', 'transmission')
@@ -109,7 +109,7 @@ describe('user', function() {
 			{client: 'rutorrent', role: 'admin'}, 
 			function(err) {
 				expect(err).to.be.null
-				db.user.byUsername(user.username, function(err, user) {
+				db.user.get(user.username, function(err, user) {
 					expect(err).to.be.null
 
 					expect(user).to.have.property('client', 'rutorrent')

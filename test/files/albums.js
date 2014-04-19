@@ -118,6 +118,35 @@ describe('albums', function() {
 		})
 	})
 
+	it('should add albums to items to remove', function(cb) {
+		db.remove.set('albums')(album, function(err, to_remove) {
+			expect(err).to.be.null
+			expect(to_remove).to.have.length.of(album.songs.length)
+
+			db.remove.store(user_path._id, to_remove, function(err, docs) {
+				expect(err).to.be.null
+				cb()
+			})
+		})
+	})
+
+	it('should find album to be removed', function(cb){
+		db.remove.get(user_path._id, function(err, to_remove) {
+			expect(err).to.be.null
+			expect(to_remove instanceof Array).to.be.true
+			expect(to_remove).to.have.length.of(3)
+			expect(to_remove[0]).to.have.property('type', 'albums')
+			cb()
+		})
+	})
+
+	it('should clear items to remove ', function(cb) {
+		db.remove.clear(user_path._id, function(err) {
+			expect(err).to.be.null
+			cb()
+		})
+	})
+
 	it('should delete a song from album', function(cb) {
 
 		db.albums.song.delete(album._id, album.songs[0]._id, function(err) {

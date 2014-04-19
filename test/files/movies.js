@@ -118,6 +118,35 @@ describe('movies', function() {
 		})
 	})
 
+	it('should add movies to items to remove', function(cb) {
+		db.remove.set('movies')(movie, function(err, to_remove) {
+			expect(err).to.be.null
+			expect(to_remove).to.have.length.of(movie.videos.length)
+
+			db.remove.store(user_path._id, to_remove, function(err, docs) {
+				expect(err).to.be.null
+				cb()
+			})
+		})
+	})
+
+	it('should find movie to be removed', function(cb){
+		db.remove.get(user_path._id, function(err, to_remove) {
+			expect(err).to.be.null
+			expect(to_remove instanceof Array).to.be.true
+			expect(to_remove).to.have.length.of(3)
+			expect(to_remove[0]).to.have.property('type', 'movies')
+			cb()
+		})
+	})
+
+	it('should clear items to remove ', function(cb) {
+		db.remove.clear(user_path._id, function(err) {
+			expect(err).to.be.null
+			cb()
+		})
+	})
+
 	it('should delete a video from movie', function(cb) {
 
 		db.movies.video.delete(movie._id, movie.videos[0]._id, function(err) {
