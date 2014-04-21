@@ -1,10 +1,10 @@
 {
   "name": "ezseed-database",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ezseed database handler",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter nyan test/index.js"
+    "test": "mocha --reporter spec test/index.js"
   },
   "repository": {
     "type": "git",
