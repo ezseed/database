@@ -138,7 +138,7 @@ describe('path', function() {
 	})
 
 	it('should get at least 2 paths', function(cb) {
-		db.paths.getAll(function(err, docs) {
+		db.paths.get(function(err, docs) {
 			expect(docs).to.have.length.of.at.least(2)
 			cb()
 		})

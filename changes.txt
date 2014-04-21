@@ -3,6 +3,7 @@ lib/paths:   function removeByPath => remove
 lib/paths:   function remove_path
 lib/paths:   function find => get
 lib/paths:   function byUser => user.paths()
+lib/paths:	 getAll = get(fn)
 lib/user:   function paths => cb(docs)
 lib/files: files byUser => user.files()
 lib/files/albums => byID => get()
