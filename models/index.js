@@ -1,5 +1,3 @@
-
-
 module.exports = {
 	others: require('./others'),
 	albums: require('./albums'),
