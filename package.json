@@ -4,7 +4,7 @@
   "description": "Ezseed database handler",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha --reporter nyan test/index.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "ezseed"
   ],
   "author": "soyuka",
-  "license": "CC3.0",
+  "license": "GPL3.0",
   "bugs": {
     "url": "https://github.com/soyuka/ezseed-database/issues"
   },
