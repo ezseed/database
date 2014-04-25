@@ -14,7 +14,7 @@ var movies = new Schema({
 	year: Number,
 	type: {type: String, default: 'movie'},
 	//special schema for movies informations, we might want to change these
-	infos: {'type': ObjectId, ref:'MoviesInformations'},
+	infos: {type: ObjectId, ref:'MoviesInformations'},
 	videos: [{type: ObjectId, ref: 'File'}],
 	prevDir: String,
 	prevDirRelative: String,
