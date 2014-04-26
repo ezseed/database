@@ -96,7 +96,7 @@ describe('albums', function() {
 	})
 
 	it('should not add a song to album', function(cb) {
-		db.albums.song.add(album._id, song, function(err) {
+		db.albums.songs.add(album._id, song, function(err) {
 			expect(err).to.be.null
 			
 			db.albums.get(album._id, function (err, saved_album) {
@@ -115,7 +115,7 @@ describe('albums', function() {
 		song.specific.num = 1
 		song.path = user_path.path+'/bob/bob2.mp3'
 
-		db.albums.song.add(album._id, song, function(err) {
+		db.albums.songs.add(album._id, song, function(err) {
 			expect(err).to.be.null
 			
 			db.albums.get(album._id, function (err, saved_album) {
@@ -162,7 +162,7 @@ describe('albums', function() {
 
 	it('should delete a song from album', function(cb) {
 
-		db.albums.song.delete(album._id, album.songs[0]._id, function(err) {
+		db.albums.songs.delete(album._id, album.songs[0]._id, function(err) {
 			expect(err).to.be.null
 			
 			db.albums.get(album._id, function (err, saved_album) {

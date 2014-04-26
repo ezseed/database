@@ -88,7 +88,7 @@ describe('others', function() {
 	})
 
 	it('should not add a file to other', function(cb) {
-		db.others.file.add(other._id, file, function(err) {
+		db.others.files.add(other._id, file, function(err) {
 			expect(err).to.be.null
 			
 			db.others.get(other._id, function (err, saved_other) {
@@ -106,7 +106,7 @@ describe('others', function() {
 		file.name = 'Peach2'
 		file.path = user_path.path+'/tro/peach2.pdf'
 
-		db.others.file.add(other._id, file, function(err) {
+		db.others.files.add(other._id, file, function(err) {
 			expect(err).to.be.null
 			
 			db.others.get(other._id, function (err, saved_other) {
@@ -153,7 +153,7 @@ describe('others', function() {
 
 	it('should delete a file from other', function(cb) {
 
-		db.others.file.delete(other._id, other.files[0]._id, function(err) {
+		db.others.files.delete(other._id, other.files[0]._id, function(err) {
 			expect(err).to.be.null
 			
 			db.others.get(other._id, function (err, saved_other) {

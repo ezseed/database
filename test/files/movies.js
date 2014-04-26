@@ -97,7 +97,7 @@ describe('movies', function() {
 	})
 
 	it('should not add a video to movie', function(cb) {
-		db.movies.video.add(movie._id, video, function(err) {
+		db.movies.videos.add(movie._id, video, function(err) {
 			expect(err).to.be.null
 			
 			db.movies.get(movie._id, function (err, saved_movie) {
@@ -116,7 +116,7 @@ describe('movies', function() {
 		video.specific.episode = 2
 		video.path = user_path.path+'/GoT/GoT2.mkv'
 
-		db.movies.video.add(movie._id, video, function(err) {
+		db.movies.videos.add(movie._id, video, function(err) {
 			expect(err).to.be.null
 			
 			db.movies.get(movie._id, function (err, saved_movie) {
@@ -163,7 +163,7 @@ describe('movies', function() {
 
 	it('should delete a video from movie', function(cb) {
 
-		db.movies.video.delete(movie._id, movie.videos[0]._id, function(err) {
+		db.movies.videos.delete(movie._id, movie.videos[0]._id, function(err) {
 			expect(err).to.be.null
 			
 			db.movies.get(movie._id, function (err, saved_movie) {
