@@ -82,6 +82,19 @@ describe('albums', function() {
 		})
 	})
 
+	it('path should populate albums', function(cb) {
+		db.paths.get(user_path._id, function(err, path) {
+			expect(err).to.be.null
+
+			var alb = path.albums[0]
+
+			expect(alb).not.to.be.undefined
+			expect(alb.songs[0].specific).to.have.property('disc', 1)
+			
+			cb()
+		})
+	})
+
 	it('should not add a song to album', function(cb) {
 		db.albums.song.add(album._id, song, function(err) {
 			expect(err).to.be.null

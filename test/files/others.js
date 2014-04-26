@@ -74,6 +74,19 @@ describe('others', function() {
 		})
 	})
 
+	it('path should populate others', function(cb) {
+		db.paths.get(user_path._id, function(err, path) {
+			expect(err).to.be.null
+
+			var othr = path.others[0]
+
+			expect(othr).not.to.be.undefined
+			expect(othr.files[0]).to.have.property('name', 'Peach')
+			
+			cb()
+		})
+	})
+
 	it('should not add a file to other', function(cb) {
 		db.others.file.add(other._id, file, function(err) {
 			expect(err).to.be.null

@@ -82,7 +82,6 @@ describe('movies', function() {
 		})
 	})
 
-
 	it('path should populate movies and movies.infos', function(cb) {
 		db.paths.get(user_path._id, function(err, path) {
 			expect(err).to.be.null
@@ -91,12 +90,11 @@ describe('movies', function() {
 
 			expect(mov).not.to.be.undefined
 			expect(mov.infos).to.have.property('synopsis', 'Some synopsis')
+			expect(mov.videos[0].specific).to.have.property('episode', '01')
 			
 			cb()
 		})
 	})
-
-
 
 	it('should not add a video to movie', function(cb) {
 		db.movies.video.add(movie._id, video, function(err) {
