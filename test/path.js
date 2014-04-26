@@ -58,6 +58,15 @@ describe('path', function() {
 		})
 	})
 
+	it('should get path by path', function(cb) {
+		db.paths.get(user_path.path, function(err, path) {
+			expect(err).to.be.null
+			expect(path).to.have.property('path')
+			expect(path.path).to.equal(user_path.path)
+			cb()	
+		})
+	})
+
 	it('should be watched', function(cb) {
 		db.paths.is_watched(user.default_path, function(err, is_watched) {
 			expect(err).to.be.null
