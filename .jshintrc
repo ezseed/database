@@ -1,6 +1,10 @@
 {
+	"node": true,
+	"strict": false,
 	"asi": true,
-	"laxbreak": true,
 	"laxcomma": true,
-	"node": true
+	"smarttabs": true,
+	"unused": "vars",
+	"expr": true,
+	"eqnull": true
 }
