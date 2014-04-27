@@ -12,7 +12,7 @@ var movies = new Schema({
 	movieType: String,
 	name: String,
 	year: Number,
-	type: {type: String, default: 'movie'},
+	type: {type: String, default: 'movies'},
 	//special schema for movies informations, we might want to change these
 	infos: {type: ObjectId, ref:'MoviesInformations'},
 	videos: [{type: ObjectId, ref: 'File'}],

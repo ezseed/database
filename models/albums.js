@@ -10,7 +10,7 @@ var albums = new Schema(
 		year: String,
 		genre: String,
 		songs: [{type: ObjectId, ref: 'File'}],
-		type: {type: String, default: 'album'},
+		type: {type: String, default: 'albums'},
 		picture: String,
 		prevDir: String,
 		prevDirRelative: String,

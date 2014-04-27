@@ -10,7 +10,7 @@ var others = new Schema(
 		dateAdded: { type: Date, default: Date.now },
 		prevDir: String,
 		prevDirRelative: String,
-		type: {type: String, default: 'other'},
+		type: {type: String, default: 'others'},
 		files: [{type: ObjectId, ref: 'File'}]
 	}
 )
