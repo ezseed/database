@@ -176,13 +176,19 @@ describe('others', function() {
 		})
 	})
 
-	it('should delete other', function() {
+	it('should delete other', function(cb) {
 		db.others.delete(other._id, function(err) {
 			expect(err).to.be.null
 
-			db.others.get(other._id, function(err, other) {
+			db.others.get(other._id, function(err, othr) {
 				expect(err).to.be.null
-				expect(other).to.be.null
+				expect(othr).to.be.null
+			
+				db.files.get(other.files[0]._id, function(err, file) {
+					expect(err).to.be.null
+					expect(file).to.be.null
+					cb()
+				})
 			})
 
 		})

@@ -188,15 +188,51 @@ describe('movies', function() {
 		})
 	})
 
-	it('should delete movie', function() {
+	it('should delete movie', function(cb) {
 		db.movies.delete(movie._id, function(err) {
 			expect(err).to.be.null
 
-			db.movies.get(movie._id, function(err, movie) {
+			db.movies.get(movie._id, function(err, mov) {
 				expect(err).to.be.null
-				expect(movie).to.be.null
+				expect(mov).to.be.null
+
+				db.files.get(movie.videos[0]._id, function(err, vid) {
+					expect(err).to.be.null
+					expect(vid).to.be.null
+					cb()
+				})
+
 			})
 
+		})
+	})
+
+	it('should delete movie with no videos left', function(cb) {
+		var mov = {
+			name: 'Game of Thrones',
+			year: 2000,
+			prevDir: user_path + '/GoT',
+			prevDirRelative: '/GoT',
+			videos: [video]
+		}
+
+		db.movies.save(mov, user_path._id, function(err, saved_movie) {
+
+			expect(err).to.be.null
+			expect(saved_movie).to.have.property('_id')
+			expect(saved_movie.videos).to.have.length.of(1)
+
+			db.movies.videos.delete(saved_movie._id, saved_movie.videos[0], function(err) {
+
+				expect(err).to.be.null
+
+				db.movies.get(movie._id, function(err, movie) {
+					expect(err).to.be.null
+					expect(movie).to.be.null
+					cb()
+				})
+
+			})
 		})
 	})
 

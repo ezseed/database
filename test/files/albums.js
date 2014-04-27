@@ -175,17 +175,55 @@ describe('albums', function() {
 		})
 	})
 
-	it('should delete album', function() {
+	it('should delete album', function(cb) {
 		db.albums.delete(album._id, function(err) {
 			expect(err).to.be.null
 
-			db.albums.get(album._id, function(err, album) {
+			db.albums.get(album._id, function(err, alb) {
 				expect(err).to.be.null
-				expect(album).to.be.null
+				expect(alb).to.be.null
+
+				db.files.get(album.songs[0]._id, function(err, song) {
+					expect(err).to.be.null
+					expect(song).to.be.null
+					cb()
+				})
 			})
 
 		})
 	})
+
+	it('should delete album with no videos left', function(cb) {
+		var alb = {
+			artist: 'Bob marley',
+			album: 'Best Of',
+			year: 2000,
+			genre: 'Reggae',
+			prevDir: user_path + '/bob',
+			prevDirRelative: '/bob',
+			songs: [song]
+		}
+
+		db.albums.save(alb, user_path._id, function(err, saved_album) {
+
+			expect(err).to.be.null
+			expect(saved_album).to.have.property('_id')
+			expect(saved_album.songs).to.have.length.of(1)
+
+			db.albums.songs.delete(saved_album._id, saved_album.songs[0], function(err) {
+
+				expect(err).to.be.null
+
+				db.albums.get(album._id, function(err, album) {
+					expect(err).to.be.null
+					expect(album).to.be.null
+					cb()
+				})
+
+			})
+		})
+	})
+
 
 	after(function(cb) {
 		db.user.delete(user.username, function(err) {
