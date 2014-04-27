@@ -1,6 +1,6 @@
 {
   "name": "ezseed-database",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Ezseed database handler",
   "main": "index.js",
   "scripts": {
