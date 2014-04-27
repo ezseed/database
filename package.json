@@ -4,7 +4,7 @@
   "description": "Ezseed database handler",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec test/index.js"
+    "test": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha test/index.js --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,8 @@
   "devDependencies": {
     "mocha": "^1.18.2",
     "should": "^3.2.0",
-    "chai": "^1.9.1"
+    "chai": "^1.9.1",
+    "coveralls": "~2.10.0",
+    "istanbul": "~0.2.7"
   }
 }
