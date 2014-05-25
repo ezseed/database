@@ -4,7 +4,7 @@
   "description": "Ezseed database handler",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha test/index.js --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "mocha test/index"
   },
   "repository": {
     "type": "git",
