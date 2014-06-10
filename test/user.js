@@ -30,6 +30,20 @@ describe('user', function() {
 		})
 	})
 
+  it('should fail login', function(cb) {
+    db.user.login({username: user.username, password: 'crazy-password'}, function(err, user) {
+      expect(err).not.to.be.null
+      cb()
+    })
+  })
+
+  it('should fail login', function(cb) {
+    db.user.login({username: user.username}, function(err, user) {
+      expect(err).not.to.be.null
+      cb()
+    })
+  })
+
 	it('should be created', function(cb) {
 		db.user.create(user, function(err, created_user) {
 			expect(err).to.be.null
@@ -37,7 +51,7 @@ describe('user', function() {
 			expect(created_user).to.have.property('role', 'admin')
 			expect(created_user).to.have.property('client', 'aucun')
 			expect(created_user).to.have.property('username', user.username)
-			
+
 			user = created_user
 
 			cb()
@@ -57,6 +71,14 @@ describe('user', function() {
 			cb()
 		})
 	})
+
+  it('should login', function(cb) {
+    db.user.login({username: user.username, password: 'crazy-password'}, function(err, user) {
+      expect(err).to.be.null
+      expect(user).to.be.an('object')
+      cb()
+    })
+  })
 
 	it('should get users', function(cb) {
 		db.users.get(function(err, users) {
@@ -106,7 +128,7 @@ describe('user', function() {
 
 	it('should update user by id', function(cb) {
 		db.user.update(user._id,
-			{client: 'rutorrent', role: 'admin'}, 
+			{client: 'rutorrent', role: 'admin'},
 			function(err) {
 				expect(err).to.be.null
 				db.user.get(user.username, function(err, user) {
