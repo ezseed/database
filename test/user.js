@@ -37,13 +37,6 @@ describe('user', function() {
     })
   })
 
-  it('should fail login', function(cb) {
-    db.user.login({username: user.username}, function(err, user) {
-      expect(err).not.to.be.null
-      cb()
-    })
-  })
-
 	it('should be created', function(cb) {
 		db.user.create(user, function(err, created_user) {
 			expect(err).to.be.null
@@ -57,6 +50,14 @@ describe('user', function() {
 			cb()
 		})
 	})
+
+  it('should fail login because of no password', function(cb) {
+    db.user.login({username: user.username}, function(err, user) {
+      expect(err).not.to.be.null
+      expect(err).to.equal('Missing password or username')
+      cb()
+    })
+  })
 
 	it('should exists', function(cb) {
 		db.user.exists(user.username, function(exists) {
