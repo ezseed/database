@@ -21,15 +21,15 @@ describe('path', function() {
 
 	it('should save user default path', function(cb) {
 		db.paths.save(
-			user_path, 
+			user_path,
 			{
 				username: user.username,
 				default: true
-			}, 
+			},
 			function(err, p) {
 				expect(err).to.be.null
 				expect(p).to.have.property('path', user_path)
-				
+
 				user_path = p
 
 				cb()
@@ -63,7 +63,7 @@ describe('path', function() {
 			expect(err).to.be.null
 			expect(path).to.have.property('path')
 			expect(path.path).to.equal(user_path.path)
-			cb()	
+			cb()
 		})
 	})
 
@@ -71,7 +71,7 @@ describe('path', function() {
 		db.paths.is_watched(user.default_path, function(err, is_watched) {
 			expect(err).to.be.null
 			expect(is_watched).to.be.true
-		
+
 			cb()
 		})
 	})
@@ -101,7 +101,7 @@ describe('path', function() {
 			function(err, is_watched) {
 				expect(err).to.be.null
 				expect(is_watched).to.be.false
-			
+
 				cb()
 			})
 	})
@@ -125,23 +125,23 @@ describe('path', function() {
 			function(err, is_watched) {
 				expect(err).to.be.null
 				expect(is_watched).to.be.true
-			
+
 				cb()
 			})
 	})
 
 	it('should be watched [Array]', function(cb) {
 		db.paths.is_watched(
-			[user.default_path, test_path._id], 
+			[user.default_path, test_path._id],
 			function(err, is_watched) {
 				expect(err).to.be.null
 				expect(is_watched).to.be.instanceof(Array);
 
 				var l = is_watched.length
-				
+
 				while(l--)
 					expect(is_watched[l]).to.be.true
-				
+
 				cb()
 			})
 	})
@@ -156,6 +156,7 @@ describe('path', function() {
 	it('should get 2 paths by user', function(cb) {
 		db.user.paths(user._id, function(err, docs) {
 			expect(err).to.be.null
+      expect(docs).not.to.have.property('hash')
 			expect(docs.paths).to.have.length.of(2)
 			cb()
 
