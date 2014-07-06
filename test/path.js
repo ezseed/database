@@ -70,7 +70,10 @@ describe('path', function() {
   it('should be watched', function(cb) {
     db.paths.is_watched(user.default_path, function(err, is_watched) {
       expect(err).to.be.null
-      expect(is_watched).to.be.true
+
+      for(var i in is_watched) {
+        expect(is_watched[i]).to.be.true
+      }
 
       cb()
     })
@@ -100,7 +103,10 @@ describe('path', function() {
       {_id: user._id},
       function(err, is_watched) {
         expect(err).to.be.null
-        expect(is_watched).to.be.false
+
+        for(var i in is_watched) {
+          expect(is_watched[i]).to.be.false
+        }
 
         cb()
       })
@@ -124,7 +130,10 @@ describe('path', function() {
       {_id: user._id},
       function(err, is_watched) {
         expect(err).to.be.null
-        expect(is_watched).to.be.true
+
+        for(var i in is_watched) {
+          expect(is_watched[i]).to.be.true
+        }
 
         cb()
       })
@@ -137,10 +146,9 @@ describe('path', function() {
         expect(err).to.be.null
         expect(is_watched).to.be.instanceof(Array);
 
-        var l = is_watched.length
-
-        while(l--)
-          expect(is_watched[l]).to.be.true
+        for(var i in is_watched) {
+          expect(is_watched[i]).to.be.true
+        }
 
         cb()
       })
