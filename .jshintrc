@@ -1,11 +1,11 @@
 {
-	"node": true,
-	"strict": false,
-	"asi": true,
-	"laxcomma": true,
-	"smarttabs": true,
-	"unused": "vars",
-	"expr": true,
-	"eqnull": true,
-	"loopfunc": true
+  "node": true,
+  "strict": false,
+  "asi": true,
+  "laxcomma": true,
+  "smarttabs": true,
+  "unused": "vars",
+  "expr": true,
+  "eqnull": true,
+  "loopfunc": true
 }

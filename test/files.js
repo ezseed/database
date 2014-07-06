@@ -3,8 +3,8 @@ var db = require('../').db
 
 describe('files', function() {
 
-	require('./files/albums.js')
-	require('./files/movies.js')
-	require('./files/others.js')
+  require('./files/albums.js')
+  require('./files/movies.js')
+  require('./files/others.js')
 
 })

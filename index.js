@@ -3,30 +3,30 @@ var mongoose = require('mongoose')
 
 
 var default_options = {
-	database: 'ezseed'
+  database: 'ezseed'
 }
 
 module.exports = function(options, done) {
 
-	if(typeof options == 'function') {
-		done = options
-		options = default_options
-	} else if(options.database === undefined) {
-		options = default_options
-	}
+  if(typeof options == 'function') {
+    done = options
+    options = default_options
+  } else if(options.database === undefined) {
+    options = default_options
+  }
 
-	mongoose.connect('mongodb://localhost/' + options.database, options)
+  mongoose.connect('mongodb://localhost/' + options.database, options)
 
-	var mongo = mongoose.connection
+  var mongo = mongoose.connection
 
-	mongo.on('error', function() {
-		throw new Error('Connection to mongodb failed')
-	})
+  mongo.on('error', function() {
+    throw new Error('Connection to mongodb failed')
+  })
 
-	mongo.once('open', function() {
-		debug('DB opened successfuly!')
-		done()
-	})
+  mongo.once('open', function() {
+    debug('DB opened successfuly!')
+    done()
+  })
 }
 
 module.exports.db = require('./lib')
