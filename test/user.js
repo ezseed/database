@@ -4,7 +4,8 @@ var db = require('../').db
 var user = {
   username: 'test-user' + Math.round(Math.random() * 100),
   password: 'crazy-password',
-  role: 'admin'
+  role: 'admin',
+  client: 'transmission'
 }, wrong_username = {
   username: '',
   password: 'crazy-password'
@@ -42,7 +43,7 @@ describe('user', function() {
       expect(err).to.be.null
       expect(created_user).to.have.property('hash')
       expect(created_user).to.have.property('role', 'admin')
-      expect(created_user).to.have.property('client', 'aucun')
+      expect(created_user).to.have.property('client', 'transmission')
       expect(created_user).to.have.property('username', user.username)
 
       user = created_user
