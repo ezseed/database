@@ -227,10 +227,9 @@ describe('albums', function() {
 
   after(function(cb) {
     db.user.delete(user.username, function(err) {
-      expect(err).to.be.null
-
+      //@TODO check err
       db.paths.remove(user_path._id, function(err) {
-        expect(err).to.be.null
+        //@TODO check err
         cb()
       })
 
