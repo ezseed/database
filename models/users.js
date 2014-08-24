@@ -9,7 +9,8 @@ var UsersSchema = new Schema({
   role: { type: String, 'default': 'user' },
   client: { type: String, 'default': 'aucun'},
   default_path: {type: ObjectId, ref: 'Paths'},
-  spaceLeft: {type: Number, 'default': 1024},
+  //size in bytes = 1Gb
+  spaceLeft: {type: Number, 'default': 1000000000},
   paths: [{type: ObjectId, ref:'Paths'}]
 })
 
