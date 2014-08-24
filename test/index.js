@@ -12,8 +12,8 @@ describe('ezseed database', function() {
     })
   })
 
-//  require('./user.js')
-  require('./path.js')
-//  require('./files.js')
+ require('./user.js')
+ require('./path.js')
+ require('./files.js')
 
 })
