@@ -193,7 +193,7 @@ describe('albums', function() {
     })
   })
 
-  it('should delete album with no videos left', function(cb) {
+  it('should delete album with no songs left', function(cb) {
     var alb = {
       artist: 'Bob marley',
       album: 'Best Of',
@@ -224,15 +224,19 @@ describe('albums', function() {
     })
   })
 
+  it('should reset path', function(cb) {
+    db.paths.reset(user_path._id, function() {
+      db.paths.get(user_path._id, function(err, path) {
+        expect(path.albums.length).to.equal(0)
+        cb()
+      })
+    })
+  })
 
   after(function(cb) {
     db.user.delete(user.username, function(err) {
-      //@TODO check err
-      db.paths.remove(user_path._id, function(err) {
-        //@TODO check err
-        cb()
-      })
-
+      expect(err).to.be.null
+      cb()
     })
   })
 })

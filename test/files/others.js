@@ -194,14 +194,19 @@ describe('others', function() {
     })
   })
 
-  after(function(cb) {
-    db.user.delete(user.username, function(err) {
-      //@TODO check err
-      db.paths.remove(user_path._id, function(err) {
-        //@TODO check err
+  it('should reset path', function(cb) {
+    db.paths.reset(user_path._id, function() {
+      db.paths.get(user_path._id, function(err, path) {
+        expect(path.others.length).to.equal(0)
         cb()
       })
+    })
+  })
 
+  after(function(cb) {
+    db.user.delete(user.username, function(err) {
+      expect(err).to.be.null
+      cb()
     })
   })
 })

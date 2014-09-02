@@ -96,6 +96,14 @@ describe('movies', function() {
     })
   })
 
+  it('should find the movieInformation', function(cb) {
+    db.movies.scrapper.exists(movie.infos.code, movie.infos.season, function(err, doc) {
+      expect(err).to.be.null
+      expect(doc).to.have.property('synopsis', 'Some synopsis')
+      cb()
+    })    
+  })
+
   it('should not add a video to movie', function(cb) {
     db.movies.videos.add(movie._id, video, function(err) {
       expect(err).to.be.null
@@ -236,14 +244,19 @@ describe('movies', function() {
     })
   })
 
-  after(function(cb) {
-    db.user.delete(user.username, function(err) {
-      //@TODO check err
-      db.paths.remove(user_path._id, function(err) {
-        //@TODO check err
+  it('should reset path', function(cb) {
+    db.paths.reset(user_path._id, function() {
+      db.paths.get(user_path._id, function(err, path) {
+        expect(path.movies.length).to.equal(0)
         cb()
       })
+    })
+  })
 
+  after(function(cb) {
+    db.user.delete(user.username, function(err) {
+      expect(err).to.be.null
+      cb()
     })
   })
 })
