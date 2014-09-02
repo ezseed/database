@@ -6,7 +6,10 @@ var moviesInformations = new Schema({
   synopsis: String,
   trailer: String,
   picture: String,
-  code: String //used to store api code maybe
+  backdrop: String,
+  season: String,
+  seasonInfos: {type: Object},
+  code: String //used to store api 
 });
 
 //should take a look at the configuration to get a scrapper model instead ?
