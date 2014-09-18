@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
 //Others
 var others = new Schema(
   {
-    name: String,
+    name: {type: String, index: 'text'},
     dateAdded: { type: Date, default: Date.now },
     prevDir: String,
     prevDirRelative: String,
