@@ -178,9 +178,9 @@ describe('path', function() {
     })
   })
 
-  it('should remove path', function(cb) {
+  it('should fail removing path', function(cb) {
     db.paths.remove(test_path._id, function(err) {
-      expect(err).to.be.null
+      expect(err).to.be.an.instanceof(Error)
       cb()
     })
   })
