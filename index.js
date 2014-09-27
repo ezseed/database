@@ -19,8 +19,8 @@ module.exports = function(options, done) {
 
   var mongo = mongoose.connection
 
-  mongo.on('error', function() {
-    throw new Error('Connection to mongodb failed')
+  mongo.on('error', function(err) {
+    throw new Error(err)
   })
 
   mongo.once('open', function() {
@@ -31,5 +31,5 @@ module.exports = function(options, done) {
 
 module.exports.db = require('./lib')
 module.exports.models = require('./models')
-// @depreceated
+// @depreceated - access through db.helpers
 module.exports.helpers = require('./lib/helpers')
