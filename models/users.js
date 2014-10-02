@@ -11,7 +11,8 @@ var UsersSchema = new Schema({
   default_path: {type: ObjectId, ref: 'Paths'},
   //size in bytes = 1Gb
   spaceLeft: {type: Number, 'default': 1000000000},
-  paths: [{type: ObjectId, ref:'Paths'}]
+  paths: [{type: ObjectId, ref:'Paths'}],
+  port: { type: Number }
 })
 
 /* Setting a virtual schema for the session */
@@ -23,7 +24,8 @@ UsersSchema.virtual('session').get(function() {
     'paths': this.paths,
     'default_path': this.default_path,
     'spaceLeft': this.spaceLeft,
-    'client':this.client
+    'client':this.client,
+    'port': this.port
   }
 })
 
