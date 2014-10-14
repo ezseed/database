@@ -12,7 +12,7 @@ var UsersSchema = new Schema({
   //size in bytes = 1Gb
   spaceLeft: {type: Number, 'default': 1000000000},
   paths: [{type: ObjectId, ref:'Paths'}],
-  port: { type: Number }
+  port: { type: Number, default: 0 }
 })
 
 /* Setting a virtual schema for the session */
