@@ -5,8 +5,8 @@ var mongoose = require('mongoose')
 //Albums schema
 var albums = new Schema(
   {
-    artist: {type: String, index: 'text'},
-    album: {type: String, index: 'text'},
+    artist: {type: String, index: 'text', default: 'VA'},
+    album: {type: String, index: 'text', default: 'No name'},
     year: String,
     genre: {type: String, index: 'text'},
     songs: [{type: ObjectId, ref: 'File'}],
