@@ -20,15 +20,15 @@
   },
   "homepage": "https://github.com/soyuka/ezseed-database",
   "dependencies": {
-    "mongoose": "^3.8.8",
+    "mongoose": "^3.8.17",
     "bcrypt-nodejs": "0.0.3",
-    "underscore": "^1.6.0",
-    "debug": "^0.8.0",
-    "async": "~0.7.0"
+    "underscore": "^1.7.0",
+    "debug": "^2.1.0",
+    "async": "~0.9.0"
   },
   "devDependencies": {
-    "mocha": "^1.18.2",
-    "should": "^3.2.0",
-    "chai": "^1.9.1"
+    "mocha": "^1.21.5",
+    "should": "^4.1.0",
+    "chai": "^1.9.2"
   }
 }
