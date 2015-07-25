@@ -33,24 +33,10 @@
     "should": "^7.0.2",
     "chai": "^3.2.0"
   },
-  "_id": "ezseed-database@1.0.3",
-  "_shasum": "1a45c9bfa08173e670f5616682f087d14e1e8f7f",
-  "_from": "ezseed-database@>=1.0.3 <2.0.0",
-  "_npmVersion": "1.4.9",
-  "_npmUser": {
-    "name": "soyuka",
-    "email": "soyuka@gmail.com"
-  },
   "maintainers": [
     {
       "name": "soyuka",
       "email": "soyuka@gmail.com"
     }
-  ],
-  "dist": {
-    "shasum": "1a45c9bfa08173e670f5616682f087d14e1e8f7f",
-    "tarball": "http://registry.npmjs.org/ezseed-database/-/ezseed-database-1.0.3.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/ezseed-database/-/ezseed-database-1.0.3.tgz"
+  ]
 }
