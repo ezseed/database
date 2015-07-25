@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/soyuka/ezseed-database",
   "dependencies": {
-    "mongoose": "^3.8.33",
+    "mongoose": "~3.8.34",
     "bcrypt-nodejs": "0.0.3",
     "underscore": "^1.8.3",
     "debug": "^2.2.0",
